@@ -1,0 +1,95 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+/*
+ * Paleta real del Dr. Jaime Rodríguez Gómez (LOGO/PALETA DE COLORES,
+ * extraída del PDF real con PyMuPDF — hex exactos, no estimados):
+ * #273a5b navy primario (CTAs, nav, "Enfermedades") · #75afe1 azul cielo
+ * secundario (acento vivo #2, "Servicios"/hover) · #eec970 dorado,
+ * acento mínimo de marca — nunca campo grande, solo detalle puntual
+ * ("Síntomas"/highlights, AGENTS.md §5) · #0a0f17 casi-negro (texto) ·
+ * #3b5871 slate oscuro (secundario/footer) · #d4d8de gris-azul claro
+ * (bordes) · #f8eac6 crema cálido (fondo de acento puntual, nunca base).
+ * Combo único aplicado en vivo — "Colores Secundarios" del PDF no usados
+ * en esta versión quedan documentados aquí por si se pide variar después.
+ */
+:root {
+  --primary: #273a5b;
+  --primary-foreground: #ffffff;
+  --accent: #75afe1;
+  --accent-foreground: #0a0f17;
+  --secondary: #3b5871;
+  --secondary-foreground: #f8eac6;
+  --gold: #eec970;
+  --gold-foreground: #0a0f17;
+  --background: #fbfbfc;
+  --foreground: #0a0f17;
+  --muted: #eef2f6;
+  --muted-foreground: #5a6b80;
+  --border: #d4d8de;
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --font-heading: var(--font-caviar), "Segoe UI", system-ui, sans-serif;
+  --font-sans: var(--font-caviar), "Segoe UI", system-ui, sans-serif;
+  --font-mono-label: var(--font-space-mono), ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* Personalidad de animación propia: "enfoque óptico" — los elementos
+   entran desenfocados y se enfocan (blur→nítido), nunca un simple fade o
+   slide; distinto de la respiración (scale) de Martha, el giro continuo de
+   Manuel, el trazo EKG de Tania o el bounce de Oliver. */
+@keyframes focus-in {
+  from { opacity: 0; filter: blur(10px); transform: translateY(8px); }
+  to { opacity: 1; filter: blur(0); transform: translateY(0); }
+}
+.animate-focus-in {
+  animation: focus-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Micro-movimiento continuo del motivo de iris/diafragma del Hero: un
+   ligerísimo "ajuste" de apertura (rotación oscilante corta), no una
+   respiración de escala ni un giro de 360°. */
+@keyframes iris-adjust {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
+}
+.animate-iris-adjust {
+  animation: iris-adjust 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-origin: center;
+}
+
+/* CTA final: el resplandor "respira" nitidez (blur variable), no escala. */
+@keyframes focus-pulse {
+  0%, 100% { filter: blur(40px); opacity: 0.7; }
+  50% { filter: blur(18px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-focus-in, .animate-iris-adjust {
+    animation: none !important;
+  }
+}
