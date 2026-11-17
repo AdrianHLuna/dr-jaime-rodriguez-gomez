@@ -34,13 +34,11 @@ export default function Home() {
     <>
       <StructuredData data={generateHomeSchemas()} />
 
-      {/* Hero "visor de enfoque" — split asimétrico sobre fondo navy, SIN
-          panel de foto (doctor.photo es placeholder): a la derecha, el
-          isotipo real (diafragma/iris partido en dos) ampliado como motivo
-          de fondo, con micro-ajuste de rotación continuo — nunca estático,
-          nunca la respiración de escala de Martha ni el giro de 360° de
-          Manuel. Composición propia de este sitio (AGENTS.md §1). */}
-      <section className="relative min-h-screen overflow-hidden bg-primary text-primary-foreground">
+      {/* Hero "visor de enfoque" — split asimétrico sobre fondo navy con
+          retrato real del doctor (/hero.jpg) y el isotipo real (diafragma/iris
+          partido en dos) ampliado como motivo de fondo con micro-ajuste de
+          rotación continuo. */}
+      <section className="relative flex min-h-screen items-center overflow-hidden bg-primary text-primary-foreground">
         <div
           aria-hidden="true"
           className="animate-iris-adjust pointer-events-none absolute -right-32 top-1/2 h-[560px] w-[560px] -translate-y-1/2 opacity-[0.14] md:h-[760px] md:w-[760px]"
@@ -48,7 +46,7 @@ export default function Home() {
           <Image src="/icon-mark-white.png" alt="" fill className="object-contain" priority />
         </div>
 
-        <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-28 md:py-36">
+        <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 py-20 md:grid-cols-[1.15fr_0.85fr] lg:gap-14 lg:pr-32 xl:pr-44">
           <div className="max-w-2xl">
             <p className="font-[family-name:var(--font-mono-label)] text-xs tracking-[0.2em] text-accent uppercase">
               {doctor.specialistTitle} · {doctor.city}, {doctor.state}
@@ -98,6 +96,17 @@ export default function Home() {
               </a>
             )}
           </div>
+
+          <div className="relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] border border-primary-foreground/15 bg-primary/40 shadow-2xl">
+            <Image
+              src={doctor.photo}
+              alt={`${doctor.title} ${doctor.name} — ${doctor.specialistTitle} en ${doctor.city}`}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 448px"
+              className="object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -117,11 +126,15 @@ export default function Home() {
 
       {/* Sobre el doctor */}
       <section aria-labelledby="about-heading" className="mx-auto max-w-5xl px-4 py-20">
-        <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-start">
-          <div className="mx-auto aspect-[3/4] w-full max-w-xs overflow-hidden rounded-[1.75rem] bg-muted md:mx-0">
-            <div className="flex h-full w-full items-center justify-center text-sm text-muted-foreground">
-              Foto de {doctor.title} {doctor.name}
-            </div>
+        <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-center">
+          <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-[1.75rem] bg-muted shadow-md md:mx-0">
+            <Image
+              src="/aboutme.jpg"
+              alt={`Sobre ${doctor.title} ${doctor.name}`}
+              fill
+              sizes="(max-width: 768px) 100vw, 384px"
+              className="object-cover"
+            />
           </div>
           <div>
             <h2 id="about-heading" className="font-heading text-2xl font-bold">

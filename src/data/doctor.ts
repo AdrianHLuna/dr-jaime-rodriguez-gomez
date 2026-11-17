@@ -22,7 +22,7 @@ export const doctor: DoctorProfile = {
   cedulaEspecialidadInstitucion: "U. de Montemorelos",
   // Sin cédula propia registrada para sub/alta especialidad en el intake —
   // se deja sin definir en vez de inventar un tercer folio.
-  cofepris: "",
+  cofepris: "223301202A0741",
   phone: "+529993534894",
   whatsapp: "+529993534894",
   emergencyPhone: "+529999933704",
@@ -60,7 +60,7 @@ export const doctor: DoctorProfile = {
     "Fr 09:45-15:00",
   ],
   acceptingNewPatients: true,
-  photo: "/doctor-placeholder.jpg",
+  photo: "/hero.jpg",
   bio: "El Dr. Jaime Arturo Rodríguez Gómez es cirujano oftalmólogo egresado de la Universidad de Montemorelos, con formación adicional en Segmento Anterior y alta especialidad en Retina y Vítreo. Con más de 10 años de experiencia, atiende en su consultorio de la Col. Altabrisa en Mérida, Yucatán, el diagnóstico y tratamiento de enfermedades oculares frecuentes (catarata, glaucoma, ojo seco, pterigión) y patología de retina (retinopatía diabética, desprendimiento de retina, degeneración macular), combinando cirugía de precisión con un seguimiento clínico cercano.",
   philosophy:
     "Cada diagnóstico ocular empieza por una exploración completa y una explicación clara al paciente — la vista no da segundas oportunidades si se actúa tarde.",
