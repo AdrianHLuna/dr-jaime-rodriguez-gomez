@@ -183,7 +183,7 @@ export default function Home() {
                 href={`/enfermedades/${disease.slug}`}
                 className="group overflow-hidden rounded-[1.75rem] border border-border bg-background transition-shadow hover:shadow-lg"
               >
-                <CardImageHeader alt={disease.name} aspect="4/3" focusOnHover />
+                <CardImageHeader src={disease.image} alt={disease.name} aspect="4/3" focusOnHover />
                 <div className="p-4">
                   <h3 className="font-semibold">{disease.name}</h3>
                   <p className="mt-1.5 line-clamp-2 text-sm text-muted-foreground">{disease.description}</p>
@@ -214,7 +214,7 @@ export default function Home() {
                 href={`/servicios/${service.slug}`}
                 className="group w-60 shrink-0 overflow-hidden rounded-[1.75rem] bg-background shadow-sm transition-shadow hover:shadow-lg"
               >
-                <CardImageHeader alt={service.name} aspect="4/3" focusOnHover />
+                <CardImageHeader src={service.image} alt={service.name} aspect="4/3" focusOnHover />
                 <div className="p-4">
                   <p className="font-semibold leading-snug">{service.name}</p>
                   <span className="mt-3 flex items-center gap-1 text-xs font-medium text-primary">
