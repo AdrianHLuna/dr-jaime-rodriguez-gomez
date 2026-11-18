@@ -129,7 +129,7 @@ export default function Home() {
         <div className="grid gap-10 md:grid-cols-[1fr_1.4fr] md:items-center">
           <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-[1.75rem] bg-muted shadow-md md:mx-0">
             <Image
-              src="/aboutme.jpg"
+              src="/aboutme.png"
               alt={`Sobre ${doctor.title} ${doctor.name}`}
               fill
               sizes="(max-width: 768px) 100vw, 384px"
