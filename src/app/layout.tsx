@@ -65,6 +65,41 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es-MX" className={`${caviarDreams.variable} ${spaceMono.variable}`}>
+      <head>
+        {/* Etiqueta head Tag Manager global de GTM */}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MDCPGFMZ" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+`,
+          }}
+        />
+        {/* Etiqueta Google Ads */}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=AW-10785483923" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+`,
+          }}
+        />
+        {/* Etiqueta de Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtm.js?id=G-953ZXVZ4VL" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+`,
+          }}
+        />
+      </head>
       <body className="pb-24 md:pb-0">
         <GoogleAnalytics />
         <SideNav />
